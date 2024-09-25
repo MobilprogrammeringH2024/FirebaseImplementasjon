@@ -121,10 +121,10 @@ fun EmailField(
         onValueChange = {
             onNewValue(it)
         } ,
-        placeholder = { Text("Email") },
+        placeholder = { Text(stringResource(R.string.email)) },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Email,
-                contentDescription = "Email")
+                contentDescription = stringResource(R.string.email))
         }              ,
 
         )
@@ -142,10 +142,10 @@ fun ConfirmEmailField(
         modifier = modifier,
         value = value,
         onValueChange = { onNewValue(it) },
-        placeholder = { Text("Confirm email") },
+        placeholder = { Text(stringResource(R.string.confirm_email)) },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Email,
-                contentDescription = "Confirm email")
+                contentDescription = stringResource(R.string.confirm_email))
         }
     )
 }
@@ -170,8 +170,8 @@ fun PasswordField(
             onNewValue(it)
             if (!isVisibleToggled) isVisible = it == ""
         }               ,
-        placeholder = { Text(text = "Password") },
-        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "Password") },
+        placeholder = { Text(stringResource(R.string.password)) },
+        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = stringResource(R.string.password)) },
         trailingIcon = {
             IconButton(onClick = {
                 isVisible = !isVisible
@@ -205,8 +205,8 @@ fun ConfirmPasswordField(
             onNewValue(it)
             if (!isVisibleToggled) isVisible = it == ""
         },
-        placeholder = { Text(text = "Confirm password") },
-        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "Confirm Password") },
+        placeholder = { Text(stringResource(R.string.confirm_password)) },
+        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = stringResource(R.string.confirm_password)) },
         trailingIcon = {
             IconButton(onClick = {
                 isVisible = !isVisible
@@ -223,11 +223,11 @@ fun ConfirmPasswordField(
 @Composable
 fun CancelButton(navController: NavController) {
     Button(
-        onClick = { navController.navigate(AppScreens.LOGIN.name) },
+        onClick = { navController.navigate(AppScreens.LOGIN_SELECTION.name) },
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Cancel")
+        Text(text = stringResource(R.string.cancel))
     }
 }
 
@@ -238,6 +238,6 @@ fun RegisterButton(navController: NavController, viewModel: RegistrationViewMode
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Register")
+        Text(text = stringResource(R.string.register))
     }
 }

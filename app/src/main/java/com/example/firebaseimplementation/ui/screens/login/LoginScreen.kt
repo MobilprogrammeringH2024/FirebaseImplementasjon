@@ -59,7 +59,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
     ) {
 
         Text(
-            text = "Sign in",
+            text = stringResource(R.string.sign_in),
             style = MaterialTheme.typography.headlineLarge,
             textAlign = TextAlign.Center,
             modifier = Modifier
@@ -119,8 +119,8 @@ fun EmailField(
         modifier = modifier,
         value = value,
         onValueChange = { onNewValue(it) },
-        placeholder = { Text("Email") },
-        leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = "Email") }
+        placeholder = { Text(stringResource(R.string.email)) },
+        leadingIcon = { Icon(imageVector = Icons.Default.Email, contentDescription = stringResource(R.string.email)) }
     )
 }
 
@@ -144,8 +144,8 @@ fun PasswordField(
             onNewValue(it)
             if (!isVisibleToggled) isVisible = it == ""
         }               ,
-        placeholder = { Text(text = "Password") },
-        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = "Password") },
+        placeholder = { Text(stringResource(R.string.password)) },
+        leadingIcon = { Icon(imageVector = Icons.Default.Lock, contentDescription = stringResource( R.string.password)) },
         trailingIcon = {
             IconButton(onClick = {
                 isVisible = !isVisible
@@ -163,11 +163,11 @@ fun PasswordField(
 @Composable
 private fun CancelButton(navController: NavController) {
     Button(
-        onClick = { navController.navigate(AppScreens.LOGIN.name) },
+        onClick = { navController.navigate(AppScreens.LOGIN_SELECTION.name) },
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Cancel")
+        Text(stringResource(R.string.cancel))
     }
 }
 
@@ -178,7 +178,7 @@ private fun LoginButton(navController: NavController, viewModel: LoginViewModel,
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Sign in")
+        Text(stringResource(R.string.sign_in))
     }
 }
 
@@ -189,6 +189,6 @@ private fun ForgotPasswordButton(viewModel: LoginViewModel) {
         modifier = Modifier,
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = "Forgot password")
+        Text(text = stringResource(R.string.forgot_password))
     }
 }

@@ -1,6 +1,6 @@
 package com.example.firebaseimplementation.service.impl
 
-import com.example.firebaseimplementation.model.FirebaseUser
+import com.example.firebaseimplementation.models.FirebaseUser
 import com.example.firebaseimplementation.service.AccountService
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.channels.awaitClose

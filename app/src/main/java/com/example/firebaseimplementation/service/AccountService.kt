@@ -1,6 +1,6 @@
 package com.example.firebaseimplementation.service
 
-import com.example.firebaseimplementation.model.FirebaseUser
+import com.example.firebaseimplementation.models.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 
 interface AccountService {

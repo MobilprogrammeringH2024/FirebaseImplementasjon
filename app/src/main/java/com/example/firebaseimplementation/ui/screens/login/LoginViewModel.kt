@@ -63,7 +63,7 @@ class LoginViewModel @Inject constructor(private val accountService: AccountServ
                         viewModelScope.launch {
                             accountService.currentUser.collectLatest { user ->
                                 if (user.id?.isNotEmpty() == true) {
-                                    navController.navigate(AppScreens.TODO.name) {
+                                    navController.navigate(AppScreens.TEXT.name) {
                                         popUpTo(AppScreens.LOGIN.name) { inclusive = true }
                                     }
                                 }
