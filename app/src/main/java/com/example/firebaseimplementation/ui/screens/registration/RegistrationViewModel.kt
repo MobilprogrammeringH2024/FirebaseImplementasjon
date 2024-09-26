@@ -66,7 +66,7 @@ class RegistrationViewModel @Inject constructor(private val accountService: Acco
 
         viewModelScope.launch {
             try {
-                accountService.linkAccount(email, password) { error ->
+                accountService.createEmailAccount(email, password) { error ->
                     if (error == null)
                         navController.navigate(AppScreens.LOGIN.name)
                 }

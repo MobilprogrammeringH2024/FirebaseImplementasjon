@@ -1,5 +1,6 @@
 package com.example.firebaseimplementation.ui.screens.registration
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -51,12 +52,13 @@ fun RegistrationScreen(
     var errorMessage by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xFFF5F5F5)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Register New User",
+            text = stringResource(R.string.register_new_user),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)

@@ -1,6 +1,7 @@
 package com.example.firebaseimplementation.ui.screens.login
 
 import android.content.Context
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -53,7 +54,8 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
     var errorMessage by remember { mutableStateOf("") }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xFFF5F5F5)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

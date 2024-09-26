@@ -1,6 +1,6 @@
 package com.example.firebaseimplementation.service.impl
 
-import com.example.firebaseimplementation.models.FirebaseUser
+import com.example.firebaseimplementation.models.User
 import com.example.firebaseimplementation.service.AccountService
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.channels.awaitClose
@@ -16,15 +16,15 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth) : A
     override val hasUser: Boolean
         get() = auth.currentUser != null
 
-    override val currentUser: Flow<FirebaseUser>
+    override val currentUser: Flow<User>
         get() = callbackFlow {
             val listener = FirebaseAuth.AuthStateListener { auth ->
                 this.trySend(auth.currentUser?.let {
-                    FirebaseUser(
+                    User(
                         id = it.uid,
                         isAnonymous = it.isAnonymous
                     )
-                } ?: FirebaseUser())
+                } ?: User())
             }
             auth.addAuthStateListener(listener)
             awaitClose { auth.removeAuthStateListener(listener) }
@@ -34,7 +34,7 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth) : A
         auth.signInAnonymously().await()
     }
 
-    override suspend fun authenticate(
+    override suspend fun authenticateWithEmail(
         email: String,
         password: String,
         onResult: (Throwable?) -> Unit
@@ -43,7 +43,7 @@ class AccountServiceImpl @Inject constructor(private val auth: FirebaseAuth) : A
             .addOnCompleteListener { onResult(it.exception) }.await()
     }
 
-    override suspend fun linkAccount(
+    override suspend fun createEmailAccount(
         email: String,
         password: String,
         onResult: (Throwable?) -> Unit

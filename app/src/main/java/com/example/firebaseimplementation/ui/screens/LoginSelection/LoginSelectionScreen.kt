@@ -1,5 +1,7 @@
 package com.example.firebaseimplementation.ui.screens.LoginSelection
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,11 +34,11 @@ import com.example.firebaseimplementation.ui.navigation.AppScreens
 @Composable
 fun LoginSelectionScreen(navController: NavController, viewModel: LoginSelectionViewModel = hiltViewModel()){
 
-    var errorMessage by remember { mutableStateOf("") }
     val context = LocalContext.current
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize()
+            .background(Color(0xFFF5F5F5)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -47,16 +50,6 @@ fun LoginSelectionScreen(navController: NavController, viewModel: LoginSelection
                 .align(Alignment.CenterHorizontally)
                 .padding(top = 200.dp)
         )
-
-        if (errorMessage.isNotEmpty()) {
-            Text(
-                text = errorMessage,
-                color = Color.Red,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(top = 10.dp)
-            )
-        }
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -71,23 +64,11 @@ fun LoginSelectionScreen(navController: NavController, viewModel: LoginSelection
                     navController.navigate(AppScreens.LOGIN.name)
                 },
                 modifier = Modifier
-                    .fillMaxWidth(0.9f)
+                    .fillMaxWidth(0.7f)
                     .padding(top = 10.dp),
-                shape = RoundedCornerShape(10.dp)
+                shape = RoundedCornerShape(20.dp)
             ) {
                 Text(text = stringResource(R.string.sign_in_with_email_and_password))
-            }
-
-            Button(
-                onClick = {
-                    viewModel.signInAnonymously(context, navController)
-                },
-                modifier = Modifier
-                    .fillMaxWidth(0.9f)
-                    .padding(top = 10.dp),
-                shape = RoundedCornerShape(10.dp)
-            ) {
-                Text(text = stringResource(R.string.sign_in_anonymously))
             }
 
             Button(
@@ -95,11 +76,24 @@ fun LoginSelectionScreen(navController: NavController, viewModel: LoginSelection
                     navController.navigate(AppScreens.REGISTRATION.name)
                 },
                 modifier = Modifier
-                    .fillMaxWidth(0.9f)
+                    .fillMaxWidth(0.7f)
                     .padding(top = 10.dp),
-                shape = RoundedCornerShape(10.dp)
+                shape = RoundedCornerShape(20.dp)
             ) {
                 Text(text = stringResource(R.string.register_new_user))
+            }
+
+            Button(
+                onClick = {
+                    viewModel.signInAnonymously(context, navController)
+                },
+                modifier = Modifier
+                    .fillMaxWidth(0.7f)
+                    .padding(top = 10.dp),
+                shape = RoundedCornerShape(20.dp),
+                colors = ButtonDefaults.buttonColors(Color.LightGray)
+            ) {
+                Text(text = stringResource(R.string.sign_in_anonymously))
             }
 
             Spacer(modifier = Modifier.weight(0.3f))

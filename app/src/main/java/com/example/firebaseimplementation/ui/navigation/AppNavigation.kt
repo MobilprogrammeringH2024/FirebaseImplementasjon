@@ -34,7 +34,8 @@ fun AppNavigation() {
 
         NavHost(
             navController = navController,
-            startDestination = if (accountService.hasUser) {
+            startDestination =
+            if (accountService.hasUser) {
                 AppScreens.TEXT.name
             } else {
                 AppScreens.LOGIN_SELECTION.name

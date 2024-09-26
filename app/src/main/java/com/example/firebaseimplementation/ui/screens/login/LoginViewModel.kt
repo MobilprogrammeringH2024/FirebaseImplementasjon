@@ -56,7 +56,7 @@ class LoginViewModel @Inject constructor(private val accountService: AccountServ
         viewModelScope.launch {
 
             try {
-                accountService.authenticate(email, password) { error ->
+                accountService.authenticateWithEmail(email, password) { error ->
 
                     if (error == null) {
                         Toast.makeText(context, "Signing in as $email...", Toast.LENGTH_SHORT).show()

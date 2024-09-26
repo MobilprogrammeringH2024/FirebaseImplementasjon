@@ -1,5 +1,6 @@
 package com.example.firebaseimplementation.ui.screens.text
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CloudOff
@@ -27,7 +28,7 @@ fun TextScreen(
     val inputText = viewModel.inputText
     val isLoading = viewModel.isLoading
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = Modifier.fillMaxSize().background(Color(0xFFF5F5F5))) {
 
 
         TextButton(
