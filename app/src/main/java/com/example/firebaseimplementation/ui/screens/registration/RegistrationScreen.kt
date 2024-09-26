@@ -16,7 +16,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -42,7 +41,6 @@ import com.example.firebaseimplementation.R
 import com.example.firebaseimplementation.ui.navigation.AppScreens
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RegistrationScreen(
     navController: NavController,
@@ -109,7 +107,6 @@ fun RegistrationScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EmailField(
     value: String,
@@ -126,13 +123,12 @@ fun EmailField(
         placeholder = { Text(stringResource(R.string.email)) },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Email,
-                contentDescription = stringResource(R.string.email))
-        }              ,
-
-        )
+                contentDescription = stringResource(R.string.email)
+            )
+        }
+    )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ConfirmEmailField(
     value: String,
@@ -147,7 +143,8 @@ fun ConfirmEmailField(
         placeholder = { Text(stringResource(R.string.confirm_email)) },
         leadingIcon = {
             Icon(imageVector = Icons.Default.Email,
-                contentDescription = stringResource(R.string.confirm_email))
+                contentDescription = stringResource(R.string.confirm_email)
+            )
         }
     )
 }
@@ -229,7 +226,7 @@ fun CancelButton(navController: NavController) {
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = stringResource(R.string.cancel))
+        Text(stringResource(R.string.cancel))
     }
 }
 
@@ -240,6 +237,6 @@ fun RegisterButton(navController: NavController, viewModel: RegistrationViewMode
         modifier = Modifier.width(150.dp),
         shape = RoundedCornerShape(10.dp)
     ) {
-        Text(text = stringResource(R.string.register))
+        Text(stringResource(R.string.register))
     }
 }

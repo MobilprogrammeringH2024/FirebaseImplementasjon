@@ -60,27 +60,37 @@ fun TextScreen(
                 contentAlignment = Alignment.Center
             ) {
                 if (isLoading) {
+
                     CircularProgressIndicator()
+
                 } else {
+
                     if (textEntry == null || textEntry.content.isBlank()) {
+
                         Column(
                             horizontalAlignment = Alignment.CenterHorizontally,
                             modifier = Modifier.padding(horizontal = 16.dp)
                         ) {
+
                             Icon(
                                 imageVector = Icons.Default.CloudOff,
                                 contentDescription = stringResource(R.string.no_text),
                                 modifier = Modifier.size(80.dp),
                                 tint = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
                             )
+
                             Spacer(modifier = Modifier.height(16.dp))
+
                             Text(
                                 text = stringResource(R.string.no_text_available_please_upload_some_text),
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                                 textAlign = TextAlign.Center
                             )
+
                         }
+
                     } else {
+
                         Text(
                             text = textEntry.content,
                             style = MaterialTheme.typography.headlineMedium.copy(
@@ -89,7 +99,9 @@ fun TextScreen(
                             textAlign = TextAlign.Center,
                             modifier = Modifier.padding(horizontal = 16.dp)
                         )
+
                     }
+
                 }
             }
 
@@ -97,6 +109,7 @@ fun TextScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
                 OutlinedTextField(
                     value = inputText,
                     onValueChange = { viewModel.onInputChange(it) },
@@ -105,6 +118,7 @@ fun TextScreen(
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
+
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -120,6 +134,7 @@ fun TextScreen(
                     ) {
                         Text(stringResource(R.string.upload))
                     }
+
                     Button(
                         onClick = { viewModel.fetchText() },
                         modifier = Modifier
@@ -132,6 +147,7 @@ fun TextScreen(
                 }
 
                 Spacer(modifier = Modifier.height(8.dp))
+
                 Button(
                     onClick = { viewModel.deleteText() },
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF44336)),
@@ -144,8 +160,10 @@ fun TextScreen(
                         contentDescription = stringResource(R.string.delete_text)
                     )
                 }
+
                 Spacer(modifier = Modifier.height(16.dp))
             }
         }
     }
 }
+
